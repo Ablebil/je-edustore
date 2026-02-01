@@ -32,14 +32,14 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out px-6 md:px-12 ${
         scrolled
-          ? "py-4 bg-white/80 backdrop-blur-xl shadow-sm"
+          ? "py-4 bg-surface/80 backdrop-blur-xl shadow-sm"
           : "py-8 bg-transparent"
       }`}
     >
       <div className="w-full max-w-450 mx-auto flex items-center justify-between">
         <Link
           href="/"
-          className="text-2xl font-black tracking-tighter text-gray-900 flex items-center gap-2 group"
+          className="text-2xl font-black tracking-tighter text-foreground flex items-center gap-2 group"
         >
           <span className="text-4xl group-hover:rotate-12 transition-transform duration-300">
             🌿
@@ -51,7 +51,7 @@ export default function Navbar() {
           className={`hidden md:flex items-center gap-2 px-3 py-2 rounded-full transition-all duration-500 ${
             scrolled
               ? "bg-gray-100/50"
-              : "bg-white/40 backdrop-blur-md border border-white/50 shadow-sm"
+              : "bg-surface/40 backdrop-blur-md border border-surface/50 shadow-sm"
           }`}
         >
           <NavLink href="/#home">Beranda</NavLink>
@@ -63,7 +63,7 @@ export default function Navbar() {
           {user ? (
             <Link
               href="/admin/dashboard"
-              className="flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full text-sm font-bold shadow-lg shadow-green-200 hover:shadow-green-300 hover:scale-105 transition-all duration-300"
+              className="flex items-center gap-2 px-6 py-3 bg-primary text-surface rounded-full text-sm font-bold shadow-lg shadow-green-200 hover:shadow-green-300 hover:scale-105 transition-all duration-300"
             >
               <LayoutDashboard size={18} />
               Dashboard
@@ -75,7 +75,7 @@ export default function Navbar() {
               }
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-5 py-2.5 bg-white text-gray-600 rounded-full text-sm font-bold shadow-sm border border-gray-100 hover:border-green-400 hover:text-green-600 hover:shadow-md transition-all duration-300"
+              className="flex items-center gap-2 px-5 py-2.5 bg-surface text-muted rounded-full text-sm font-bold shadow-sm border border-gray-100 hover:border-green-400 hover:text-green-600 hover:shadow-md transition-all duration-300"
             >
               <MessageCircle size={18} />
               <span className="hidden sm:inline">Chat Admin</span>
@@ -97,7 +97,7 @@ function NavLink({
   return (
     <Link
       href={href}
-      className="px-6 py-2.5 text-sm font-semibold text-gray-600 rounded-full hover:bg-white hover:text-primary hover:shadow-md transition-all duration-300"
+      className="px-6 py-2.5 text-sm font-semibold text-muted rounded-full hover:bg-surface hover:text-primary hover:shadow-md transition-all duration-300"
     >
       {children}
     </Link>
