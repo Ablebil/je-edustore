@@ -1,23 +1,18 @@
+import HeroSection from "@/components/home/HeroSection";
 import { supabase } from "@/lib/supabase";
 
 export default async function Home() {
-  const { data: products, error } = await supabase.from("products").select("*");
+  const { data: products } = await supabase
+    .from("products")
+    .select("*")
+    .eq("is_active", true);
+
+  const sampleProducts = products?.filter((p) => p.price === 0) || [];
+  const premiumProducts = products?.filter((p) => p.price > 0) || [];
 
   return (
-    <div>
-      <h1>Je Edustore</h1>
-
-      {error ? (
-        <div>
-          <p>error connecting to supabase:</p>
-          <pre>{JSON.stringify(error, null, 2)}</pre>
-        </div>
-      ) : (
-        <div>
-          <p>connected to supabase</p>
-          <p>products count in db: {products?.length || 0}</p>
-        </div>
-      )}
+    <div className="flex flex-col min-h-screen bg-cream overflow-x-hidden font-sans selection:bg-primary selection:text-white">
+      <HeroSection />
     </div>
   );
 }
